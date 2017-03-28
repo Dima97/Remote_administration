@@ -1,0 +1,5 @@
+﻿  Menu.cpp
+\\mac\home\documents\visual studio 2015\projects\courspaper\courspaper\menu.cpp(13): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note:  см. объявление "scanf"
+  courspaper.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\courspaper\Debug\courspaper.exe
+  courspaper.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\courspaper\Debug\courspaper.pdb (Full PDB)
