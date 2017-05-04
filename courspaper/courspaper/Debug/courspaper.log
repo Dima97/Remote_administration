@@ -1,5 +1,25 @@
 ﻿  Menu.cpp
-\\mac\home\documents\visual studio 2015\projects\courspaper\courspaper\menu.cpp(13): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+\\mac\home\documents\visual studio 2015\projects\kourspaper\courspaper\courspaper\menu.cpp(17): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note:  см. объявление "scanf"
-  courspaper.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\courspaper\Debug\courspaper.exe
-  courspaper.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\courspaper\Debug\courspaper.pdb (Full PDB)
+\\mac\home\documents\visual studio 2015\projects\kourspaper\courspaper\courspaper\menu.cpp(27): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note:  см. объявление "scanf"
+\\mac\home\documents\visual studio 2015\projects\kourspaper\courspaper\courspaper\menu.cpp(28): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note:  см. объявление "strcat"
+\\mac\home\documents\visual studio 2015\projects\kourspaper\courspaper\courspaper\menu.cpp(34): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note:  см. объявление "scanf"
+\\mac\home\documents\visual studio 2015\projects\kourspaper\courspaper\courspaper\menu.cpp(35): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note:  см. объявление "strcat"
+\\mac\home\documents\visual studio 2015\projects\kourspaper\courspaper\courspaper\menu.cpp(41): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note:  см. объявление "scanf"
+\\mac\home\documents\visual studio 2015\projects\kourspaper\courspaper\courspaper\menu.cpp(42): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note:  см. объявление "strcat"
+\\mac\home\documents\visual studio 2015\projects\kourspaper\courspaper\courspaper\menu.cpp(51): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note:  см. объявление "scanf"
+  Code.cpp
+\\mac\home\documents\visual studio 2015\projects\kourspaper\courspaper\courspaper\code.cpp(65): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note:  см. объявление "strcat"
+\\mac\home\documents\visual studio 2015\projects\kourspaper\courspaper\courspaper\code.cpp(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note:  см. объявление "fopen"
+  Создание кода...
+  courspaper.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\kourspaper\courspaper\Debug\courspaper.exe
+  courspaper.vcxproj -> \\Mac\Home\Documents\Visual Studio 2015\Projects\kourspaper\courspaper\Debug\courspaper.pdb (Full PDB)
