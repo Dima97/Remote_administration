@@ -1,4 +1,5 @@
 #include "Header.h"
+HHOOK MousHook;
 void Menu(struct Data *data)
 {
 	setlocale(LC_CTYPE, "russian");
@@ -15,44 +16,99 @@ void Menu(struct Data *data)
 
 		printf("1 - get command\n0 - close the programm ");
 		scanf("%i", &Menu);
-
-		if (Menu == 1)
+		switch (Menu)
+		{
+		case 1: {
+			printf("enter command ");
+			scanf_s("%199s", data->Massage, 200);
+			switch (atoi(data->Massage))
+			{
+			/*case 1:
+				printf("%s", data->Massage);
+				printf("enter path");
+				scanf("%s", path);
+				strcat(data->Massage, path);
+				break;*/
+			case 2:
+			{
+				printf("%s", data->Massage);
+				printf("enter path");
+				scanf("%s", path);
+				strcat(data->Massage, path);
+				break;
+			}
+			case 3:
+			{
+				printf("%s", data->Massage);
+				printf("enter path");
+				scanf("%s", path);
+				strcat(data->Massage, path);
+				break;
+			}
+			case 1:
+				{
+				printf("%s", data->Massage);
+				printf("enter path");
+				scanf("%s", path);
+				strcat(data->Massage, path);
+				break;
+			}
+			case 4:
+			{
+				printf("%s", data->Massage);
+				printf("enter path");
+				scanf("%s", path);
+				strcat(data->Massage, path);
+				break;
+			}
+			default: 
+			{
+				if (send(data->Sock, data->Massage, strlen(data->Massage) + 1, 0) != SOCKET_ERROR)
+					printf("Sent!\n");
+				else printf("Error of sending!\n");
+				break;
+			}
+		}
+			break;
+		}
+		case 2:
 		{
 			printf("enter command ");
 			scanf_s("%199s", data->Massage, 200);
-			if (atoi(data->Massage) == 8)
+			switch (atoi(data->Massage))
 			{
-				printf("%s", data->Massage);
-				printf("enter path");
-				scanf("%s", path);
-				strcat(data->Massage, path);
-			}
-			if (atoi(data->Massage) == 7)
+			case 1:
 			{
-				printf("%s", data->Massage);
-				printf("enter path");
+				printf("enter path for downloading");
 				scanf("%s", path);
-				strcat(data->Massage, path);
+				recvFile(data, path);
+				printf("file downloaded!");
+				break;
 			}
-			if (atoi(data->Massage) == 0)
+			case 2: 
 			{
-				printf("%s", data->Massage);
-				printf("enter path");
-				scanf("%s", path);
-				strcat(data->Massage, path);
+				system("cls");
+				recv(data->Sock, data->Massage, 387, 0);
+				printf("%s\n", data->Massage);
+				break;
 			}
-			if (send(data->Sock, data->Massage, strlen(data->Massage) + 1, 0) != SOCKET_ERROR)
-				printf("Sent!\n");
-			else printf("Error of sending!\n");
+			default: {
+				recv(data->Sock, data->Massage, 100, 0);
+				printf("%s\n", data->Massage);
+				break;
+			}
+			}
+			break;
 		}
-		if (Menu == 0)
+		case 3:
 		{
-			printf("enter path for downloading");
-			scanf("%s", path);
-			recvFile(data,path);
-			printf("tip prinal");
+			mouseClick(data);
+			break;
+
 		}
-		//recv(data->Sock, data->Massage, 100, 0);
-		//printf("%s\n", data->Massage);
+		}
+		if (send(data->Sock, data->Massage, strlen(data->Massage) + 1, 0) != SOCKET_ERROR)
+			printf("Sent!\n");
+		else printf("Error of sending!\n");
 	} while (Menu != 0);
 }

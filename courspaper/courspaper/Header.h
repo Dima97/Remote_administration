@@ -6,6 +6,16 @@
 #include <tchar.h>
 #include <stdio.h>
 #include<stdlib.h>
+#include <windows.h>
+#include <cstring>
+#include <fstream>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <tchar.h>
+#include <process.h>
+#include <winuser.h>
+//#using <System.dll>
 #include<iostream>
 using namespace std;
 
@@ -24,3 +34,4 @@ void Menu(struct Data *data);
 void CreatSocketAndConnect(struct Data *data);
 void CloseConnect(struct Data *data);
 void recvFile(struct Data *data,char path[]);
+void mouseClick(struct Data *data);
