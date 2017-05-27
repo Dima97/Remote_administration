@@ -60,9 +60,8 @@ bool readfile(struct Data *data, FILE *f)
 }
 void recvFile(struct Data *data,char path[])
 {
-	//FILE *filehandle = fopen(path, "wb");
-	FILE *filehandle = fopen("C:\\Users\\ִלטענטי\\ava.txt", "wb");
-	if (filehandle != NULL)
+	FILE *filehandle = fopen(path, "wb");
+		if (filehandle != NULL)
 	{
 		bool ok = readfile(data, filehandle);
 		fclose(filehandle);
