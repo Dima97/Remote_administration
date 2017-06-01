@@ -4,10 +4,14 @@ void SendMsg(struct Data *data)
 {
 	if (send(data->Sock, data->Massage, strlen(data->Massage) + 1, 0) != SOCKET_ERROR)
 			printf("Sent!\n");
+<<<<<<< HEAD
 	else {
 		printf("Error of sending!\n");
 		CreatSocketAndConnect(data);
 	}
+=======
+		else printf("Error of sending!\n");
+>>>>>>> 660f14f767b27f91da68589bc8736bc0457de3b8
 }
 void Menu(struct Data *data)
 {
@@ -15,6 +19,124 @@ void Menu(struct Data *data)
 	char command[100];
 	char path[100];
 	while (1) {
+<<<<<<< HEAD
+=======
+
+		//scanf("%i", &Menu);
+		//switch (Menu)
+		//{
+		//case 1: {
+		//	printf("enter command ");
+		//	scanf_s("%199s", data->Massage, 200);
+		//	switch (atoi(data->Massage))
+		//	{
+		//	/*case 1:
+		//		printf("%s", data->Massage);
+		//		printf("enter path");
+		//		scanf("%s", path);
+		//		strcat(data->Massage, path);
+		//		break;*/
+		//	case 2:
+		//	{
+		//		printf("%s", data->Massage);
+		//		printf("enter path");
+		//		scanf("%s", path);
+		//		strcat(data->Massage, path);
+		//		break;
+		//	}
+		//	/*case 3:
+		//	{
+		//		printf("%s", data->Massage);
+		//		printf("enter path");
+		//		scanf("%s", path);
+		//		strcat(data->Massage, path);
+		//		break;
+		//	}*/
+		//	case 3:
+		//	{
+		//		if (send(data->Sock, data->Massage, strlen(data->Massage) + 1, 0) != SOCKET_ERROR)
+		//			printf("Sent!\n");
+		//		else printf("Error of sending!\n");
+		//		do {
+		//			recv(data->Sock, data->Massage, 100, 0);
+		//			printf("%s\n", data->Massage);
+		//		} while (strcmp(data->Massage, "Program Manager") != 0);
+		//		break;
+		//	}
+		//	case 1:
+		//		{
+		//		printf("%s", data->Massage);
+		//		printf("enter path");
+		//		scanf("%s", path);
+		//		strcat(data->Massage, path);
+		//		break;
+		//	}
+		//	case 4:
+		//	{
+		//		printf("%s", data->Massage);
+		//		printf("enter path");
+		//		scanf("%s", path);
+		//		strcat(data->Massage, path);
+		//		break;
+		//	}
+		///*	default: 
+		//	{
+		//		if (send(data->Sock, data->Massage, strlen(data->Massage) + 1, 0) != SOCKET_ERROR)
+		//			printf("Sent!\n");
+		//		else printf("Error of sending!\n");
+		//		break;
+		//	}*/
+		//}
+		//	break;
+		//}
+		//case 2:
+		//{
+		//	printf("enter command ");
+		//	scanf_s("%199s", data->Massage, 200);
+		//	switch (atoi(data->Massage))
+		//	{
+		//	case 1:
+		//	{
+		//		printf("enter path for downloading");
+		//		scanf("%s", path);
+		//		recvFile(data, path);
+		//		printf("file downloaded!");
+		//		break;
+		//	}
+		//	case 2: 
+		//	{
+		//		system("cls");
+		//		recv(data->Sock, data->Massage, 387, 0);
+		//		printf("%s\n", data->Massage);
+		//		break;
+		//	}
+		//	case 3:
+		//	{
+		//		do {
+		//			recv(data->Sock, data->Massage, 100, 0);
+		//			printf("%s\n", data->Massage);
+		//		} while (strcmp(data->Massage, "Program Manager") != 0);
+		//		break;
+		//	}
+		//	default: {
+		//		recv(data->Sock, data->Massage, 100, 0);
+		//		printf("%s\n", data->Massage);
+		//		break;
+		//	}
+		//	}
+		//	break;
+		//}
+		//case 3:
+		//{
+		//	mouseClick(data);
+		//	break;
+
+		//}
+		//}
+		//if (send(data->Sock, data->Massage, strlen(data->Massage) + 1, 0) != SOCKET_ERROR)
+		//	printf("Sent!\n");
+		//else printf("Error of sending!\n");
+>>>>>>> 660f14f767b27f91da68589bc8736bc0457de3b8
 		printf("$ ");
 		scanf("%s", &command);
 		if (!strcmp(command, "mkfile")) {
@@ -58,6 +180,7 @@ void Menu(struct Data *data)
 			printf("file downloaded!\n");
 			continue;
 		}
+<<<<<<< HEAD
 		else if (!strcmp(command, "mkscreen"))
 		{
 			scanf("%s", &command);
@@ -71,6 +194,8 @@ void Menu(struct Data *data)
 			printf("screen in folder!\n");
 			continue;
 		}
+=======
+>>>>>>> 660f14f767b27f91da68589bc8736bc0457de3b8
 		else if (!strcmp(command, "getcursor")) {
 			strcpy(data->Massage, "6");
 			SendMsg(data);
@@ -137,6 +262,7 @@ void Menu(struct Data *data)
 				printf("%s\n", data->Massage);
 			} while (1);
 			continue;
+<<<<<<< HEAD
 		}
 		else if (!strcmp(command, "connect")) {
 			CreatSocketAndConnect(data);
@@ -151,6 +277,10 @@ void Menu(struct Data *data)
 			printf(" Unknown command");
 			continue;
 		}
+=======
+		}
+		else printf(" Unknown command");
+>>>>>>> 660f14f767b27f91da68589bc8736bc0457de3b8
 		recv(data->Sock, data->Massage, 100, 0);
 		printf("%s\n", data->Massage);
 		continue;

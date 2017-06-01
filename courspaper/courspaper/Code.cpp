@@ -86,7 +86,10 @@ bool readfile(struct Data *data, FILE *f)
 void recvFile(struct Data *data,char path[])
 {
 	FILE *filehandle = fopen(path, "wb");
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 660f14f767b27f91da68589bc8736bc0457de3b8
 		if (filehandle != NULL)
 	{
 		bool ok = readfile(data, filehandle);

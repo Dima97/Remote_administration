@@ -15,6 +15,10 @@
 #include <tchar.h>
 #include <process.h>
 #include <winuser.h>
+<<<<<<< HEAD
+=======
+//#using <System.dll>
+>>>>>>> 660f14f767b27f91da68589bc8736bc0457de3b8
 #include<iostream>
 using namespace std;
 
@@ -34,7 +38,11 @@ void Menu(struct Data *data);
 void CreatSocketAndConnect(struct Data *data);
 void CloseConnect(struct Data *data);
 void recvFile(struct Data *data,char path[]);
+<<<<<<< HEAD
 void mouseClick(struct Data *data);
 int recieveData(struct Data *data);
 void Screen(struct Data *data, char path[]);
 void funHelp();
+=======
+void mouseClick(struct Data *data);
+>>>>>>> 660f14f767b27f91da68589bc8736bc0457de3b8
