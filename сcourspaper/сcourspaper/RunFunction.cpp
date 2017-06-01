@@ -1,5 +1,7 @@
 #include "Header.h"
 #include <string>
+#include <list>
+#include <sstream>
 void RebootPC()
 {
 	WinExec("shutdown -r -t 0", SW_HIDE);
@@ -19,9 +21,18 @@ void OpenCD_ROM()
 {
 	mciSendString(_T("Set cdaudio door open wait"), NULL, 0, NULL);
 }
-void ExitFunction()
+void ShowFiles(struct Data *data)
 {
-	exit(0);
+	WIN32_FIND_DATA FindFileData;
+	HANDLE hf;
+	hf = FindFirstFile("D:\\RemoteAdministration\\*", &FindFileData);
+	if (hf != INVALID_HANDLE_VALUE) {
+		do {
+			send(data->Server,FindFileData.cFileName, 100, 0);
+		} while (FindNextFile(hf, &FindFileData) != 0);
+		FindClose(hf);
+	}
+	send(data->Server, "0", 100, 0);
 }
 void CreatFile(char path[],struct Data *data)
 {
@@ -30,7 +41,7 @@ void CreatFile(char path[],struct Data *data)
 	{
 		path[i] = path[i + 1];
 	}
-	char str[100] = "C:\\Users\\Дмитрий\\";
+	char str[100] = "D:\\RemoteAdministration\\";
 	strcat(str, path);
 	printf("file created %s", str);
 	if (CreateFile(LPCTSTR(str), GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL) == INVALID_HANDLE_VALUE)
@@ -50,7 +61,7 @@ void DelFile(char path[],struct Data *data)
 	{
 		path[i] = path[i + 1];
 	}
-	char str[100] = "C:\\Users\\Дмитрий\\";
+	char str[100] = "D:\\RemoteAdministration\\";
 	strcat(str, path);
 	if (DeleteFile(LPCTSTR(str)) == 0)
 	{
@@ -64,16 +75,67 @@ void DelFile(char path[],struct Data *data)
 }
 void WorkWithCursor(struct Data *data)
 {
-	HCURSOR curs;
-	if (DestroyCursor(curs) == false)
-	{
-		send(data->Server, "error", 100, 0);
-		printf("error");
+	while (1) {
+		if (recv(data->Server, data->Massage, 200, 0) != SOCKET_ERROR)
+		{ 
+			int pos[2];
+			pos[0] = 0;
+			pos[1] = 0;
+			char executValue = data->Massage[0];
+			for (int i = 0; i < strlen(data->Massage); i++)
+			{
+				data->Massage[i] = data->Massage[i + 1];
+			}
+			char *ph = strtok(data->Massage, " ,");
+			int i = 0;
+			while(ph != NULL)
+			{
+				pos[i] = atoi(ph);
+				ph = strtok(NULL, " ,");
+				i++;
+			}
+			pos[0] = pos[0] * 17.2;
+			pos[1] = pos[1] *  20.5;
+			INPUT inp[3];
+			memset(inp, 0, sizeof(inp));
+			switch (executValue) {
+			case 'M': {
+				SetCursorPos(pos[0], pos[1]);
+				break;
+			}
+			case 'C': {
+				
+				SetCursorPos(pos[0], pos[1]);
+				printf("%d,%d\n", pos[0], pos[1]);
+				inp[0].type = INPUT_MOUSE;
+				inp[0].mi.dwFlags = MOUSEEVENTF_LEFTDOWN; // нажатие левой кнопки 
+
+				inp[1].type = INPUT_MOUSE;
+				inp[1].mi.dwFlags = MOUSEEVENTF_LEFTUP; // отпускание левой кнопки 
+				SendInput(2, inp, sizeof(INPUT));
+				
+				break;
+			}
+			case 'D':
+			{
+				SetCursorPos(pos[0], pos[1]);
+				inp[0].type = INPUT_MOUSE;
+				inp[0].mi.dwFlags = MOUSEEVENTF_LEFTDOWN; 
+
+				inp[1].type = INPUT_MOUSE;
+				inp[1].mi.dwFlags = MOUSEEVENTF_LEFTUP;
+				SendInput(2, inp, sizeof(INPUT));
+				SendInput(2, inp, sizeof(INPUT));
+				break;
+			}
+			case 'W':
+			{
+				return;
+			}
+			}
+		}
 	}
-	else {
-		send(data->Server, "all is ok", 100, 0);
-		printf("all is ok");
-	}
+		   
 }
 bool sendData(struct Data *data, void *buf, int bufLen)
 {
@@ -131,7 +193,9 @@ void sendFileFunction(char path[],struct Data *data)
 	{
 		path[i] = path[i + 1];
 	}
-	FILE *filehandle = fopen(path, "rb");
+	char str[100] = "D:\\RemoteAdministration\\";
+	strcat(str, path);
+	FILE *filehandle = fopen(str, "rb");
 	if (filehandle != NULL)
 	{
 		printf("sent!");
@@ -139,4 +203,68 @@ void sendFileFunction(char path[],struct Data *data)
 		fclose(filehandle);
 	}
 	else printf("error");
+}
+void Execute(char path[])
+{
+	for (int i = 0; i < strlen(path); i++)
+	{
+		path[i] = path[i + 1];
+	}
+	char str[100] = "D:\\RemoteAdministration\\";
+	strcat(str, path);
+	ShellExecute(NULL, "open", str, NULL, str, SW_SHOWNORMAL);
+	return;
+}
+void CloseProgramm(char name[])
+{
+	setlocale(LC_CTYPE, "russian");
+	for (int i = 0; i < strlen(name); i++)
+	{
+		name[i] = name[i + 1];
+	}
+	HWND hwnd;
+	char p[100];
+	hwnd = GetDesktopWindow();
+	hwnd = GetWindow(hwnd, GW_CHILD);
+	while (hwnd != 0)
+	{
+		hwnd = GetWindow(hwnd, GW_HWNDNEXT);
+		if (IsWindowVisible(hwnd) && GetWindowText(hwnd, p, 100))
+			if (strstr(p, name)) {
+				printf("programm closed");
+				PostMessage(FindWindow(NULL,p), WM_QUIT, 0, 0);
+			}
+	}
+}
+void GetInfoAboutWindows(struct Data *data) {
+	HWND hwnd;
+	char p[100];
+	hwnd = GetDesktopWindow();
+	hwnd = GetWindow(hwnd, GW_CHILD);
+	while (hwnd != 0)
+	{
+		hwnd = GetWindow(hwnd, GW_HWNDNEXT);
+		if (IsWindowVisible(hwnd) && GetWindowText(hwnd, p, 100))
+			send(data->Server, p, 100, 0); 
+	}
+}
+void CPY(char path[])
+{
+	for (int i = 0; i < strlen(path); i++)
+	{
+		path[i] = path[i + 1];
+	}
+	char temp[100];
+	strcpy(temp, path);
+	char *ph = strtok(temp, "\\");
+	char name[40];
+	while (ph != NULL)
+	{
+		strcpy(name, ph);
+		ph = strtok(NULL, "\\");
+	}
+	strcpy(temp,"D:\\RemoteAdministration\\");
+	strcat(temp, name);
+	CopyFile(path,temp, false);
+	free(ph);
 }

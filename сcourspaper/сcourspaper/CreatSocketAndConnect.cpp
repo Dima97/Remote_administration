@@ -12,7 +12,7 @@ void CreatSocketAndConnect(struct Data *data)
 	bind(data->Sock, (SOCKADDR*)&(data->sin), sizeof(data->sin));
 
 
-	printf("wait of server...\n");
+	printf("wait of server...\n"); 
 
 	listen(data->Sock, SOMAXCONN);
 	data->Server = accept(data->Sock, (SOCKADDR*)&(data->sin), 0);

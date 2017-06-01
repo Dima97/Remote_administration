@@ -145,8 +145,11 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="CloseConnect.cpp" />
     <ClCompile Include="CreatSocketAndConnect.cpp" />
+    <ClCompile Include="InformationSysteme.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Run.cpp" />
     <ClCompile Include="RunFunction.cpp" />
+    <ClCompile Include="Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h" />

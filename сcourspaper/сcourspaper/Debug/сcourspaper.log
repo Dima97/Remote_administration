@@ -1,27 +1,27 @@
-﻿Сборка начата 05.05.2017 1:22:43.
+﻿Сборка начата 02.06.2017 1:39:07.
      1>Проект "C:\Users\Дмитрий\Documents\Visual Studio 2015\Projects\сcourspaper\сcourspaper\сcourspaper.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt RunFunction.cpp
-         RunFunction.cpp
-     1>c:\users\дмитрий\documents\visual studio 2015\projects\сcourspaper\сcourspaper\runfunction.cpp(29): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\дмитрий\documents\visual studio 2015\projects\сcourspaper\сcourspaper\runfunction.cpp(34): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Screen.cpp
+         Screen.cpp
+     1>c:\users\дмитрий\documents\visual studio 2015\projects\сcourspaper\сcourspaper\screen.cpp(90): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\дмитрий\documents\visual studio 2015\projects\сcourspaper\сcourspaper\screen.cpp(95): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
          c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\string.h(90): note:  см. объявление "strcat"
-     1>c:\users\дмитрий\documents\visual studio 2015\projects\сcourspaper\сcourspaper\runfunction.cpp(49): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\дмитрий\documents\visual studio 2015\projects\сcourspaper\сcourspaper\runfunction.cpp(54): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\дмитрий\documents\visual studio 2015\projects\сcourspaper\сcourspaper\screen.cpp(98): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\string.h(119): note:  см. объявление "strcpy"
+     1>c:\users\дмитрий\documents\visual studio 2015\projects\сcourspaper\сcourspaper\screen.cpp(99): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
          c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\string.h(90): note:  см. объявление "strcat"
-     1>c:\users\дмитрий\documents\visual studio 2015\projects\сcourspaper\сcourspaper\runfunction.cpp(130): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\дмитрий\documents\visual studio 2015\projects\сcourspaper\сcourspaper\runfunction.cpp(134): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(205): note:  см. объявление "fopen"
-     1>c:\users\дмитрий\documents\visual studio 2015\projects\сcourspaper\сcourspaper\runfunction.cpp(68): warning C4700: использована неинициализированная локальная переменная "curs"
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Дмитрий\Documents\Visual Studio 2015\Projects\сcourspaper\Debug\сcourspaper.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Дмитрий\Documents\Visual Studio 2015\Projects\сcourspaper\Debug\сcourspaper.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Дмитрий\Documents\Visual Studio 2015\Projects\сcourspaper\Debug\сcourspaper.lib" /MACHINE:X86 Debug\Client.obj
          Debug\CloseConnect.obj
          Debug\CreatSocketAndConnect.obj
+         Debug\InformationSysteme.obj
          Debug\Menu.obj
+         Debug\Run.obj
          Debug\RunFunction.obj
+         Debug\Screen.obj
          сcourspaper.vcxproj -> C:\Users\Дмитрий\Documents\Visual Studio 2015\Projects\сcourspaper\Debug\сcourspaper.exe
      1>Сборка проекта "C:\Users\Дмитрий\Documents\Visual Studio 2015\Projects\сcourspaper\сcourspaper\сcourspaper.vcxproj" завершена (целевые объекты Build).
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:02.66
+Затраченное время: 00:00:08.49

