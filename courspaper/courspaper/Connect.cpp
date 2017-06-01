@@ -14,13 +14,14 @@ void CreatSocketAndConnect(struct Data *data)
 	data->Sock = socket(AF_INET, SOCK_STREAM, 0);
 
 	printf("connecting to client... \n");
-	if (connect(data->Sock, (SOCKADDR*)&(data->sin), sizeof(data->sin)) == SOCKET_ERROR) {
-		printf("Connection error!\n");
-		CloseConnect(data);
-	}
+		if (connect(data->Sock, (SOCKADDR*)&(data->sin), sizeof(data->sin)) == SOCKET_ERROR) {
+			system("cls");
+			CloseConnect(data);
+		}
 	send(data->Sock, data->PCName, strlen(data->PCName) + 1, 0);
 	recv(data->Sock, data->ClientName, 30, 0);
-
+	if (strlen(data->ClientName) > 30) CreatSocketAndConnect(data);
+	system("cls");
 	printf("Connected to \"%s\"!\n", data->ClientName);
-	
+	return;
 }
